@@ -4,26 +4,37 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="app.css" />
     <title>Document</title>
-</head>
-<body>
-    <div>
-        <label>
-            People
+  </head>
+  <body>
+    <div id="container">
+      <div id="flex-container">
+        <div id="form">
+          <div id="inputs">
+            <label for="people-num"> People </label>
             <input id="people-num" type="number" placeholder="Number of people" />
-        </label>
-        <label>
-            Minutes total
+            <label for="total-time"> Minute </label>
             <input id="total-time" type="number" placeholder="Total minutes" />
-        </label>
-        <button id="initialize-button">Initialize</button>
+          </div>
+          <div class="button" id="initialize-button">Initialize</div>
+        </div>
+        <div id="persons-group">
+          <div id="people-counter"></div>
+          <div class="button" id="next-person-button">Next person</div>
+          <div class="button" id="add-person-button">Add person</div>
+        </div>
+        <div id="timer-group">
+          <div id="personal-timer"></div>
+          <p>Total time left: <span id="timer"></span></p>
+        </div>
+        <!-- <div id="timer"></div> -->
+        <div id="timer-control-group">
+          <div class="button control-button" id="control-button">Start/Stop</div>
+          <div class="button control-button" id="reset-button">Reset</div>
+        </div>
+      </div>
     </div>
-    <div id="people-counter"></div>
-    <div id="timer"></div>
-    <div id="personal-timer"></div>
-    <button id="next-person-button">next person</button>
-    <button id="control-button">Start/Stop</button>
-    <button id="reset-button">reset</button>
     <script src="app.js" defer></script>
   </body>
 </html>

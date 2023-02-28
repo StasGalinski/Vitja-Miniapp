@@ -6,6 +6,7 @@ class App {
   timerEl;
   peronalTimerEl;
 
+  addPersonButton;
   nextPersonButton;
   controlButton;
   resetButton;
@@ -24,6 +25,7 @@ class App {
     this.timerEl = document.getElementById("timer");
     this.peronalTimerEl = document.getElementById("personal-timer");
 
+    this.addPersonButton = document.getElementById("add-person-button");
     this.nextPersonButton = document.getElementById("next-person-button");
     this.initializeButton = document.getElementById("initialize-button");
     this.controlButton = document.getElementById("control-button");
@@ -34,6 +36,7 @@ class App {
     this.controlButton.addEventListener("click", this.controlHandler);
     this.nextPersonButton.addEventListener("click", this.reducePersons);
     this.initializeButton.addEventListener("click", this.initialisation);
+    this.addPersonButton.addEventListener('click',this.addPersons)
     this.resetButton.addEventListener("click", this.reset);
   };
   initialisation = () => {
@@ -49,26 +52,31 @@ class App {
     this.calculateTimePerPerson();
     this.displayValues();
   };
-  controlHandler = () =>{
+  addPersons=()=>{
+    this.numOfPeopleLeft++;
+    this.calculateTimePerPerson();
+    this.displayValues();
+  }
+  controlHandler = () => {
     if (this.timer) {
       this.stopCount();
     } else {
       this.startCount();
     }
-  }
-  startCount = () => {
-      this.timer = setInterval(() => {
-        this.timeLeft--;
-        this.personalTime--;
-        this.displayValues();
-      }, 1000);
   };
-  stopCount = ()=>{
-    console.log(this.timer)
+  startCount = () => {
+    this.timer = setInterval(() => {
+      this.timeLeft--;
+      this.personalTime--;
+      this.displayValues();
+    }, 1000);
+  };
+  stopCount = () => {
+    console.log(this.timer);
     clearInterval(this.timer);
     this.timer = 0;
-    console.log(this.timer)
-  }
+    console.log(this.timer);
+  };
   calculateTimePerPerson() {
     this.personalTime = Math.floor(this.timeLeft / this.numOfPeopleLeft);
   }
@@ -79,26 +87,28 @@ class App {
   };
   formatTime(time) {
     if (time <= 0) {
-      time = Math.abs(time)
+      time = Math.abs(time);
       const minutes = Math.floor(time / 60);
       const seconds = time - minutes * 60;
       return `Overtime - ${Math.abs(minutes)}: ${Math.abs(seconds)}`;
-    }else {
+    } else {
       const minutes = Math.floor(time / 60);
       const seconds = time - minutes * 60;
-      return `${minutes} min : ${seconds}`;
+      return `${minutes} min : ${seconds} sec`;
     }
   }
-  reset=()=> {
+  reset = () => {
     this.peopleCounterEl.innerHTML = "";
     this.timerEl.innerHTML = "";
     this.peronalTimerEl.innerHTML = "";
+    this.peopleNumInput.value = "";
+    this.totalTimeInput.value = "";
     this.numOfPeopleLeft = 0;
     this.timeLeft = 0;
     this.personalTime = 0;
-    if(this.timer){
+    if (this.timer) {
       this.stopCount();
     }
-  }
+  };
 }
 const app = new App();

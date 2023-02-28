@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1rem;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid red;
+  margin: 0 16px;
+  margin-top: 20px;
+  padding: 0 0 20px 0;
+  gap: 15px;
+}
+#flex-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0 2rem;
+  gap: 10px;
+}
+#form {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+}
+#inputs {
+  display: flex;
+  flex-direction: column;
+  flex: 4;
+}
+#form label {
+  text-align: center;
+  color: red;
+  font-size: 0.8rem;
+}
+#form .button {
+  text-align: center;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#persons-group {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 5px;
+}
+#people-counter {
+    text-align: center;
+  flex: 3;
+}
+#next-person-button {
+  flex: 2;
+}
+#timer-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#personal-timer {
+  font-size: 3rem;
+  line-height: 3rem;
+}
+#timer-control-group {
+  display: flex;
+}
+#control-button{
+    flex:3;
+}
+#reset-button{
+    flex:1;
+}
+.button {
+  border: 1px solid green;
+  width: 40%;
+  border-radius: 3px;
+  background-color: rgb(209, 243, 222);
+  padding: 0.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.button:hover {
+  background-color: rgb(209, 243, 200);
+  cursor: pointer;
+}
+.control-button{
+    height: 2rem;
+}
